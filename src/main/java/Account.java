@@ -25,9 +25,16 @@ public class Account {
         return sum;
     }
 
-    public int withDrawAmount(int amount){
+    public int withDrawAmount(int amount) throws BankExeption{
         // TODO: skal kodes og returnere ny saldo. Smid fejl hvis amount > saldo
-        return 0;
+        if (amount > getBalance()){
+            throw new BankExeption("Du har ikke nok penge");
+        } else if (amount < 0){
+            throw new BankExeption("Du kan ikke hæve negative tal");
+        }
+        transactions.add(new Transaction(-amount,new Date()));
+
+        return getBalance();
     }
 
     public int depositAmount(int amount){
