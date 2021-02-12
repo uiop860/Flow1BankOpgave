@@ -22,7 +22,7 @@ public class Account {
         for (Transaction transaction : transactions) {
             sum += transaction.getAmount();
         }
-        return 0;
+        return sum;
     }
 
     public int withDrawAmount(int amount){
@@ -33,7 +33,7 @@ public class Account {
     public int depositAmount(int amount){
         // TODO: skal debugges og returnere ny saldo. Smid fejl hvis amount < 0.
         transactions.add(new Transaction(amount, new Date()));
-        return 0;
+        return getBalance();
     }
 
     public List<Transaction> getTransactions() {
