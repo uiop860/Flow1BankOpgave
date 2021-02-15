@@ -1,0 +1,22 @@
+@startuml
+left to right direction
+actor "Customer" as C
+actor "Employee" as E
+
+rectangle Bank {
+  usecase "Transfer money" as UC1
+  usecase "Deposit money" as UC2
+  usecase "Withdraw money" as UC3
+  usecase "Transaction history" as UC4
+}
+
+C --> UC1
+C --> UC2
+C --> UC3
+C --> UC4
+
+UC1 <-- E
+UC2 <-- E
+UC3 <-- E
+UC4 <-- E
+@enduml
