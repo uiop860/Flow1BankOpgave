@@ -26,13 +26,12 @@ public class Account extends Database{
         }
         return sum;
 
-        // Nedenstående kode er junk prepareSTM 
+        // Nedenstående kode er junk prepareSTM
         //con.prepareStatement("INSERT INTO BALANCE (BALANCE) Values (?)");
     }
 
     public int withDrawAmount(int amount) throws BankExeption, SQLException {
-        // TODO: skal kodes og returnere ny saldo. Smid fejl hvis amount > saldo
-        if (amount > getBalance()){
+                if (amount > getBalance()){
             throw new BankExeption("Du har ikke nok penge");
         } else if (amount < 0){
             throw new BankExeption("Du kan ikke hæve negative tal");
@@ -43,7 +42,7 @@ public class Account extends Database{
     }
 
     public int depositAmount(int amount) throws SQLException {
-        // TODO: skal debugges og returnere ny saldo. Smid fejl hvis amount < 0.
+
         transactions.add(new Transaction(amount, new Date()));
         return getBalance();
     }
