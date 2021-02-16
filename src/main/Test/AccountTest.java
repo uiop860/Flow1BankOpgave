@@ -41,12 +41,9 @@ class AccountTest {
 
     @Test
     void withDrawAmount() {
-        account.depositAmount(100);
-        try {
-            Assertions.assertEquals(50,account.withDrawAmount(50));
-        } catch (BankExeption bankExeption) {
-            bankExeption.printStackTrace();
-        }
+
+        Assertions.assertEquals(1000, account.depositOrWithdraw(50,1,1));
+
     }
 
     @Test

@@ -25,15 +25,9 @@ public class Account extends Database{
 
     }
 
-    public int withDrawAmount(int amount) throws BankExeption {
-                if (amount > getBalance()){
-            throw new BankExeption("Du har ikke nok penge");
-        } else if (amount < 0){
-            throw new BankExeption("Du kan ikke hæve negative tal");
-        }
-        transactions.add(new Transaction(-amount,new Date()));
+    public int depositOrWithdraw(int amount, int accountID,int customerID){
 
-        return getBalance();
+        return Dao.makeTransaction(amount,accountID,customerID);
     }
 
     public int depositAmount(int amount) {
