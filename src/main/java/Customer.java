@@ -1,6 +1,6 @@
 import java.util.Objects;
 
-public class Customer {
+public class Customer extends Database{
 
     private String name;
 
