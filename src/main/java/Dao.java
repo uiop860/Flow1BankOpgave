@@ -12,21 +12,23 @@ public class Dao extends Database {
         e.printStackTrace();
     }
     */
-        private static PreparedStatement checkAmount;
+    private static PreparedStatement checkAmount;
 
 
-
-
-    public static void withdrawmoney(int moneyChange, int accountID, int customerID) {
+    public static int makeTransaction(int moneyChange, int accountID, int customerID) {
         try {
-            PreparedStatement withdrawMoney = con.prepareStatement("INSERT INTO bank.transactions(MoneyChange,Accounts_Account id,Accounts_Customer_Customer id) VALUES (?,?,?)");
+            Database.setup();
+            PreparedStatement withdrawMoney = con.prepareStatement("INSERT INTO bank.transactions(moneychange,accounts_accountid,accounts_customer_customerid) VALUES (?,?,?)");
             withdrawMoney.setInt(1, moneyChange);
             withdrawMoney.setInt(2, accountID);
             withdrawMoney.setInt(3, customerID);
+            withdrawMoney.executeUpdate();
             con.close();
         } catch (SQLException e) {
             e.printStackTrace();
         }
+
+        return checkAmount(accountID);
 
     }
 
@@ -37,7 +39,7 @@ public class Dao extends Database {
             checkAmount = con.prepareStatement("SELECT balance FROM bank.accounts WHERE accountid=?");
             checkAmount.setInt(1, accountID);
             ResultSet rs = checkAmount.executeQuery();
-            while(rs.next()){
+            while (rs.next()) {
                 result = rs.getInt(1);
             }
             con.close();
