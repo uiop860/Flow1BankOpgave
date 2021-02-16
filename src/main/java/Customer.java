@@ -13,6 +13,4 @@ public class Customer extends Database{
     }
 
 
-
-
 }

@@ -6,7 +6,7 @@ class DaoTest {
     @Test
     void checkAmount() {
 
-        Assertions.assertEquals(1000, Dao.checkAmount(2));
+        Assertions.assertEquals(1000, Dao.checkBalance(2));
 
     }
 

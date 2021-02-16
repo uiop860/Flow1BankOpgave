@@ -27,11 +27,11 @@ public class Dao extends Database {
             e.printStackTrace();
         }
 
-        return checkAmount(accountID);
+        return checkBalance(accountID);
 
     }
 
-    public static int checkAmount(int accountID) {
+    public static int checkBalance(int accountID) {
         PreparedStatement checkAmount;
         int result = 0;
         try {
