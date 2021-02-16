@@ -21,13 +21,13 @@ USE `bank` ;
 DROP TABLE IF EXISTS `bank`.`Customer` ;
 
 CREATE TABLE IF NOT EXISTS `bank`.`Customer` (
-  `Customer id` INT UNSIGNED NOT NULL AUTO_INCREMENT,
-  `Name` VARCHAR(45) NULL,
-  `Age` INT NULL,
-  `Address` VARCHAR(45) NULL,
-  PRIMARY KEY (`Customer id`),
-  UNIQUE INDEX `Customer id_UNIQUE` (`Customer id` ASC) VISIBLE)
-ENGINE = InnoDB;
+                                                 `customerid` INT UNSIGNED NOT NULL AUTO_INCREMENT,
+                                                 `name` VARCHAR(45) NULL,
+    `age` INT NULL,
+    `address` VARCHAR(45) NULL,
+    PRIMARY KEY (`customerid`),
+    UNIQUE INDEX `Customer id_UNIQUE` (`customerid` ASC) VISIBLE)
+    ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
@@ -36,17 +36,17 @@ ENGINE = InnoDB;
 DROP TABLE IF EXISTS `bank`.`Accounts` ;
 
 CREATE TABLE IF NOT EXISTS `bank`.`Accounts` (
-  `Account id` INT UNSIGNED NOT NULL AUTO_INCREMENT,
-  `Balance` INT NULL,
-  `Customer_Customer id` INT UNSIGNED NOT NULL,
-  PRIMARY KEY (`Account id`, `Customer_Customer id`),
-  INDEX `fk_Accounts_Customer_idx` (`Customer_Customer id` ASC) VISIBLE,
-  CONSTRAINT `fk_Accounts_Customer`
-    FOREIGN KEY (`Customer_Customer id`)
-    REFERENCES `bank`.`Customer` (`Customer id`)
+                                                 `accountid` INT UNSIGNED NOT NULL AUTO_INCREMENT,
+                                                 `balance` INT NULL,
+                                                 `customer_Customerid` INT UNSIGNED NOT NULL,
+                                                 PRIMARY KEY (`accountid`, `customer_Customerid`),
+    INDEX `fk_Accounts_Customer_idx` (`customer_Customerid` ASC) VISIBLE,
+    CONSTRAINT `fk_Accounts_Customer`
+    FOREIGN KEY (`customer_Customerid`)
+    REFERENCES `bank`.`Customer` (`customerid`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
-ENGINE = InnoDB;
+    ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
@@ -55,19 +55,19 @@ ENGINE = InnoDB;
 DROP TABLE IF EXISTS `bank`.`Transactions` ;
 
 CREATE TABLE IF NOT EXISTS `bank`.`Transactions` (
-  `Transactions id` INT NOT NULL AUTO_INCREMENT,
-  `MoneyChange` INT NULL,
-  `Date` DATETIME NULL DEFAULT now(),
-  `Accounts_Account id` INT UNSIGNED NOT NULL,
-  `Accounts_Customer_Customer id` INT UNSIGNED NOT NULL,
-  PRIMARY KEY (`Transactions id`, `Accounts_Account id`, `Accounts_Customer_Customer id`),
-  INDEX `fk_Transactions_Accounts1_idx` (`Accounts_Account id` ASC, `Accounts_Customer_Customer id` ASC) VISIBLE,
-  CONSTRAINT `fk_Transactions_Accounts1`
-    FOREIGN KEY (`Accounts_Account id` , `Accounts_Customer_Customer id`)
-    REFERENCES `bank`.`Accounts` (`Account id` , `Customer_Customer id`)
+                                                     `transactionid` INT NOT NULL AUTO_INCREMENT,
+                                                     `moneychange` INT NULL,
+                                                     `date` DATETIME NULL DEFAULT now(),
+    `accounts_accountid` INT UNSIGNED NOT NULL,
+    `accounts_customer_customerid` INT UNSIGNED NOT NULL,
+    PRIMARY KEY (`transactionid`, `accounts_accountid`, `accounts_customer_customerid`),
+    INDEX `fk_Transactions_Accounts1_idx` (`accounts_accountid` ASC, `accounts_customer_customerid` ASC) VISIBLE,
+    CONSTRAINT `fk_Transactions_Accounts1`
+    FOREIGN KEY (`accounts_accountid` , `accounts_customer_customerid`)
+    REFERENCES `bank`.`Accounts` (`accountid` , `customer_Customerid`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
-ENGINE = InnoDB;
+    ENGINE = InnoDB;
 
 
 SET SQL_MODE=@OLD_SQL_MODE;
