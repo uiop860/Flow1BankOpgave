@@ -17,18 +17,16 @@ public class Account extends Database{
         return customer;
     }
 
-    public int getBalance() throws SQLException {
+    public int getBalance() {
         int sum = 0;
         for (Transaction transaction : transactions) {
             sum += transaction.getAmount();
         }
         return sum;
 
-        // Nedenstående kode er junk prepareSTM
-        //con.prepareStatement("INSERT INTO BALANCE (BALANCE) Values (?)");
     }
 
-    public int withDrawAmount(int amount) throws BankExeption, SQLException {
+    public int withDrawAmount(int amount) throws BankExeption {
                 if (amount > getBalance()){
             throw new BankExeption("Du har ikke nok penge");
         } else if (amount < 0){
@@ -39,7 +37,7 @@ public class Account extends Database{
         return getBalance();
     }
 
-    public int depositAmount(int amount) throws SQLException {
+    public int depositAmount(int amount) {
 
         transactions.add(new Transaction(amount, new Date()));
         return getBalance();
