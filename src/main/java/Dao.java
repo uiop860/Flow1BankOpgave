@@ -12,7 +12,6 @@ public class Dao extends Database {
         e.printStackTrace();
     }
     */
-    private static PreparedStatement checkAmount;
 
 
     public static int makeTransaction(int moneyChange, int accountID, int customerID) {
@@ -33,6 +32,7 @@ public class Dao extends Database {
     }
 
     public static int checkAmount(int accountID) {
+        PreparedStatement checkAmount;
         int result = 0;
         try {
             Database.setup();
@@ -48,4 +48,37 @@ public class Dao extends Database {
         }
         return result;
     }
+
+    public static void insertCustomerIntoDatabase(String name, int age, String address){
+        PreparedStatement insertCustomer;
+        try {
+            Database.setup();
+            insertCustomer = con.prepareStatement("INSERT INTO bank.customer(Name, Age, Address) VALUES (?,?,?);");
+            insertCustomer.setString(1,name);
+            insertCustomer.setInt(2,age);
+            insertCustomer.setString(3,address);
+            insertCustomer.executeUpdate();
+            con.close();
+        }catch (SQLException e){
+            e.printStackTrace();
+        }
+    }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

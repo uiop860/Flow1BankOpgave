@@ -14,7 +14,7 @@ class AccountTest {
 
     @BeforeEach
     void temp(){
-        customer = new Customer("Jens");
+        customer = new Customer("Jens",18,"Kirkevej");
         account = new Account(customer);
 
     }

@@ -14,6 +14,13 @@ class DaoTest {
     void makeTransaction() {
 
         Dao.makeTransaction(-100,2,1);
+        Assertions.assertEquals(1000,Dao.makeTransaction(100,2,1));
 
+    }
+
+    @Test
+    void insertCustomerIntoDatabase() {
+
+        Dao.insertCustomerIntoDatabase("Benny",25,"Langbortistan");
     }
 }

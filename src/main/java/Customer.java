@@ -1,31 +1,20 @@
-import java.util.Objects;
-
 public class Customer extends Database{
 
     private String name;
+    private int age;
+    private String Address;
 
-    public Customer(String name) {
+    public Customer(String name, int age, String address) {
         this.name = name;
+        this.age = age;
+        Address = address;
     }
 
-    public String getName() {
-        return name;
+    public void insertCustomerToDatabase(){
+
+
+
     }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof Customer)) return false;
-        Customer customer = (Customer) o;
-        return Objects.equals(getName(), customer.getName());
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(getName());
-    }
-
-
 
 
 }
