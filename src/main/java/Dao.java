@@ -24,6 +24,7 @@ public class Dao extends Database {
     public static void checkAmount (int value) throws SQLException {
         try{
         con.prepareStatement("SELECT balance FROM bank.accounts WHERE accountid);
+                con
         con.close();
         }catch (SQLException e){
             e.printStackTrace();
