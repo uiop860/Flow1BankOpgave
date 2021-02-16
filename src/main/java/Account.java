@@ -16,12 +16,9 @@ public class Account extends Database{
         return customer;
     }
 
-    public int getBalance() {
-        int sum = 0;
-        for (Transaction transaction : transactions) {
-            sum += transaction.getAmount();
-        }
-        return sum;
+    public int getBalance(int accountID) {
+
+        return Dao.checkAmount(accountID);
 
     }
 
