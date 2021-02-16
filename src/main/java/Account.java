@@ -2,7 +2,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-public class Account {
+public class Account  extends Database{
 
     private List<Transaction> transactions;
     private Customer customer;
@@ -17,7 +17,6 @@ public class Account {
     }
 
     public int getBalance(){
-        // TODO: skal debugges
         int sum = 0;
         for (Transaction transaction : transactions) {
             sum += transaction.getAmount();
