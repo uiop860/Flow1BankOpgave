@@ -1,4 +1,6 @@
-public class Customer extends Database{
+import java.util.Scanner;
+
+public class Customer extends Database {
 
     private String name;
     private int age;
@@ -12,5 +14,10 @@ public class Customer extends Database{
 
     }
 
+    public String takeInput() {
+        Scanner input = new Scanner(System.in);
+        return input.nextLine();
 
+
+    }
 }
