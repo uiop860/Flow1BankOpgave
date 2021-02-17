@@ -29,7 +29,7 @@ public class UI {
     }
 
     public void run() {
-        System.out.println("1 - Hæve penge \n 2 - Indsæt penge\n 3 - Kontoudtog\n 4 - Overfør penge");
+        System.out.println(" 1 - Hæve penge \n 2 - Indsæt penge\n 3 - Kontoudtog\n 4 - Overfør penge\n 5 - Afslut");
         String input = takeStringInput();
         switch (input) {
 
@@ -70,9 +70,19 @@ public class UI {
                 run();
                 break;
             case "4":
-                System.out.println("Vælg beløb til");
+                try {
+                    System.out.println("Hvor meget ønsker du at overføre?");
+                    int transferAmount = Integer.parseInt(takeStringInput());
+                    System.out.println("Hvilken konto ønsker at indsætte på?");
+                    int transferId = Integer.parseInt(takeStringInput());
+                    Dao.makeTransaction(transferAmount, transferId);
+                }catch(NullPointerException e){
+                System.out.println(e);
+                run();
+            }
                 break;
-                case "5"
+            case "5":
+                System.exit(0);
             default:
                 System.out.println("Forkert input, prøv igen");
 
