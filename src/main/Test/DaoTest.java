@@ -13,7 +13,7 @@ class DaoTest {
     @Test
     void makeTransaction() {
 
-        Dao.makeTransaction(-456,2);
+        Dao.makeTransaction(-456,1);
 
     }
 

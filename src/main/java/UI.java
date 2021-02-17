@@ -6,7 +6,7 @@ public class UI {
     private static Customer customer;
     private static Account account;
 
-    ;
+
 
 
     public String takeStringInput() {
@@ -38,6 +38,7 @@ public class UI {
                 try {
                     System.out.println("Hvor mange penge vil du hæve?");
                     int withdrawAmount = Integer.parseInt(takeStringInput());
+
                     Dao.makeTransaction(withdrawAmount, id);
                     int currentBalanceAfterWithdraw = Dao.checkBalance(id);
                     System.out.println("Du har:" + currentBalanceAfterWithdraw);

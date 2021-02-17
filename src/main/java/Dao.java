@@ -60,7 +60,7 @@ public class Dao extends Database {
 
         try {
             Database.setup();
-            getCustomerID = con.prepareStatement("SELECT accountid FROM accounts WHERE customer_customerid=?;");
+            getCustomerID = con.prepareStatement("SELECT accountid FROM bank.accounts WHERE customer_customerid=?;");
             getCustomerID.setInt(1,accountID);
             ResultSet rs = getCustomerID.executeQuery();
             rs.next();
