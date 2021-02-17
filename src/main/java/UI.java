@@ -77,6 +77,8 @@ public class UI {
                     System.out.println("Hvilken konto ønsker at indsætte på?");
                     int transferId = Integer.parseInt(takeStringInput());
                     Dao.makeTransaction(transferAmount, transferId);
+                    System.out.println("Du har sat" + transferAmount + "DKK ind på" + transferId);
+                    // Sout om balancen på kontoen :) 
                 }catch(NullPointerException e){
                 System.out.println(e);
                 run();
