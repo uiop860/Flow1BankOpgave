@@ -1,3 +1,5 @@
+import com.mysql.cj.x.protobuf.MysqlxPrepare;
+
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -41,6 +43,7 @@ public class Dao extends Database {
 
     public static void insertCustomerIntoDatabase(String name, int age, String address) {
         PreparedStatement insertCustomer;
+        PreparedStatement createAccount;
         try {
             Database.setup();
             insertCustomer = con.prepareStatement("INSERT INTO bank.customer(Name, Age, Address) VALUES (?,?,?);");
@@ -48,6 +51,10 @@ public class Dao extends Database {
             insertCustomer.setInt(2, age);
             insertCustomer.setString(3, address);
             insertCustomer.executeUpdate();
+
+            createAccount = con.prepareStatement("INSERT INTO bank.accounts(customer_Customerid) SELECT customerid FROM bank.customer WHERE name = ? ");
+            createAccount.setString(1,name);
+            createAccount.executeUpdate();
             con.close();
         } catch (SQLException e) {
             e.printStackTrace();
