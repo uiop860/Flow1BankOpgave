@@ -1,5 +1,3 @@
-import com.mysql.cj.x.protobuf.MysqlxPrepare;
-
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
