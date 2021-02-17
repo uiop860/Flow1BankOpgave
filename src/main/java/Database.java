@@ -12,9 +12,7 @@ public abstract class Database {
         String pw = "bank123";
         try {
             con = DriverManager.getConnection(url, user, pw);
-            System.out.println("Connection succeeded!");
         } catch (SQLException e) {
-            System.out.println("Could not connect.");
             e.printStackTrace();
         }
     }
