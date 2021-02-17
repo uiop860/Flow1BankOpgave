@@ -73,6 +73,7 @@ public class UI {
                 try {
                     System.out.println("Hvor meget ønsker du at overføre?");
                     int transferAmount = Integer.parseInt(takeStringInput());
+                    Dao.makeTransaction(-transferAmount,id);
                     System.out.println("Hvilken konto ønsker at indsætte på?");
                     int transferId = Integer.parseInt(takeStringInput());
                     Dao.makeTransaction(transferAmount, transferId);
