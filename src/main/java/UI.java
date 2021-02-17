@@ -65,8 +65,9 @@ public class UI {
 
                 break;
             case "3":
-                System.out.println("Indtast venligst dit konto nummer:");
-
+                System.out.println("Transactionerne på din konto er:");
+                System.out.println(Dao.getTransactions(id).toString());
+                run();
                 break;
             case "4":
                 System.out.println("Vælg beløb til");

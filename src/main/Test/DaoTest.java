@@ -4,9 +4,9 @@ import org.junit.jupiter.api.Test;
 class DaoTest {
 
     @Test
-    void checkAmount() {
+    void checkBalance() {
 
-        Assertions.assertEquals(1000, Dao.checkBalance(2));
+        Dao.checkBalance(1);
 
     }
 

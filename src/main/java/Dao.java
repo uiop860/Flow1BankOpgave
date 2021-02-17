@@ -23,16 +23,30 @@ public class Dao extends Database {
     }
 
     public static int checkBalance(int accountID) {
-        PreparedStatement checkAmount;
+        PreparedStatement getSumOfTransactions;
+        PreparedStatement updateBalance;
+        PreparedStatement getBalance;
         int result = 0;
         try {
             Database.setup();
-            checkAmount = con.prepareStatement("SELECT balance FROM bank.accounts WHERE accountid=?");
-            checkAmount.setInt(1, accountID);
-            ResultSet rs = checkAmount.executeQuery();
-            while (rs.next()) {
-                result = rs.getInt(1);
-            }
+
+            getSumOfTransactions = con.prepareStatement("SELECT SUM(moneychange) FROM bank.transactions where accounts_accountid=?");
+            getSumOfTransactions.setInt(1,accountID);
+            ResultSet rsSum  = getSumOfTransactions.executeQuery();
+            rsSum.next();
+            int sum = rsSum.getInt(1);
+
+            updateBalance = con.prepareStatement("UPDATE bank.accounts SET balance=? WHERE accountid=?");
+            updateBalance.setInt(1,sum);
+            updateBalance.setInt(2,accountID);
+            updateBalance.executeUpdate();
+
+            getBalance = con.prepareStatement("SELECT balance FROM bank.accounts WHERE accountid=?");
+            getBalance.setInt(1, accountID);
+            ResultSet rsBalance = getBalance.executeQuery();
+            rsBalance.next();
+            result = rsBalance.getInt(1);
+
             con.close();
         } catch (SQLException e) {
             e.printStackTrace();
@@ -78,7 +92,7 @@ public class Dao extends Database {
         return result;
     }
 
-    public static ArrayList getTransactions(int accountID){
+    public static ArrayList<Transaction> getTransactions(int accountID){
         PreparedStatement getTransactions;
 
         ArrayList<Transaction> transactions = new ArrayList<>();
