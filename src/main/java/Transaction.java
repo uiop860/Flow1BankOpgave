@@ -1,6 +1,3 @@
-import java.util.Date;
-import java.util.Scanner;
-
 public class Transaction extends Database {
 
 
@@ -24,39 +21,5 @@ public class Transaction extends Database {
                 ", date='" + date + '\'' +
                 ", accountID=" + accountID +
                 '}'+"\n";
-    }
-
-    /** Getters and setters */
-
-    public int getTransactionID() {
-        return transactionID;
-    }
-
-    public void setTransactionID(int transactionID) {
-        this.transactionID = transactionID;
-    }
-
-    public int getMoneyChange() {
-        return moneyChange;
-    }
-
-    public void setMoneyChange(int moneyChange) {
-        this.moneyChange = moneyChange;
-    }
-
-    public String getDate() {
-        return date;
-    }
-
-    public void setDate(String date) {
-        this.date = date;
-    }
-
-    public int getAccountID() {
-        return accountID;
-    }
-
-    public void setAccountID(int accountID) {
-        this.accountID = accountID;
     }
 }
