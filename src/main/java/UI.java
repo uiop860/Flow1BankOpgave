@@ -37,7 +37,7 @@ public class UI {
                     System.out.println("Hvor mange penge vil du hæve?");
                     int withdrawAmount = Integer.parseInt(takeStringInput());
                     //sidste ID skal ændres i nedenstående sætning//
-                    Dao.makeTransaction(withdrawAmount, id, id);
+                    Dao.makeTransaction(withdrawAmount, id);
                     int currentBalanceAfterWithdraw = Dao.checkBalance(id);
                     System.out.println("Du har:" + currentBalanceAfterWithdraw);
                     run();
