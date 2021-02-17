@@ -21,7 +21,7 @@ public class Account extends Database{
 
     public int depositOrWithdraw(int amount, int accountID,int customerID){
 
-        return Dao.makeTransaction(amount,accountID,customerID);
+        return Dao.makeTransaction(amount,accountID);
     }
 
 
