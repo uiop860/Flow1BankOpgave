@@ -14,10 +14,5 @@ public class Customer extends Database {
 
     }
 
-    public String takeInput() {
-        Scanner input = new Scanner(System.in);
-        return input.nextLine();
 
-
-    }
 }

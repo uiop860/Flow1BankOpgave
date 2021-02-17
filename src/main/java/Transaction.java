@@ -1,6 +1,7 @@
 import java.util.Date;
+import java.util.Scanner;
 
-public class Transaction extends Database{
+public class Transaction extends Database {
 
     private int amount;
     private Date date;
@@ -17,4 +18,5 @@ public class Transaction extends Database{
     public Date getDate() {
         return date;
     }
+
 }
