@@ -26,18 +26,19 @@ public class UI {
             System.out.println(e);
         }
     }
-        public void run(){
+
+    public void run() {
         System.out.println("1 - Hæve penge \n 2 - Indsæt penge\n 3 - Kontoudtog\n 4 - Overfør penge");
         String input = takeStringInput();
         switch (input) {
+
             case "1":
                 int currentBalance = Dao.checkBalance(id);
                 System.out.println("Du har:" + currentBalance);
                 try {
                     System.out.println("Hvor mange penge vil du hæve?");
                     int withdrawAmount = Integer.parseInt(takeStringInput());
-                    //sidste ID skal ændres i nedenstående sætning//
-                    Dao.makeTransaction(withdrawAmount, id, id);
+                    Dao.makeTransaction(withdrawAmount, id);
                     int currentBalanceAfterWithdraw = Dao.checkBalance(id);
                     System.out.println("Du har:" + currentBalanceAfterWithdraw);
                     run();
@@ -45,9 +46,11 @@ public class UI {
 
                     System.out.println(e);
                 }
-
                 break;
             case "2":
+
+
+
                 System.out.println("Indtast venligst dit konto nummer:");
 
                 break;
