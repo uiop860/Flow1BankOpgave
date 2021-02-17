@@ -16,12 +16,13 @@ public class UI {
 
     int id = 0;
 
-    public void Setup() {
+    public void setup() {
         System.out.println("Velkommen til banken");
         System.out.println("Indtast venligst dit kunde ID");
         try {
             id = Integer.parseInt(takeStringInput());
             System.out.println("Mange tak, vælg venligst et af følgende funktioner");
+            run();
         } catch (NullPointerException e) {
             System.out.println(e);
         }
@@ -44,14 +45,22 @@ public class UI {
                     System.out.println("Du har:" + currentBalanceAfterWithdraw);
                     run();
                 } catch (NullPointerException e) {
-
                     System.out.println(e);
                 }
                 break;
             case "2":
-
-
-
+                try {
+                    int depositCurrentBalance = Dao.checkBalance(id);
+                    System.out.println("Du har:" + depositCurrentBalance);
+                    System.out.println("Hvor meget ønsker du at indsætte?");
+                    int depositAmount = Integer.parseInt(takeStringInput());
+                    Dao.makeTransaction(depositAmount, id);
+                    int depositCurrentBalanceAfterDeposit = Dao.checkBalance(id);
+                    System.out.println("Du har indsat" + depositAmount + "på" + id + "den nye balance er" + depositCurrentBalanceAfterDeposit);
+                    run();
+                } catch (NullPointerException e){
+                    System.out.println(e);
+                }
                 System.out.println("Indtast venligst dit konto nummer:");
 
                 break;
@@ -61,6 +70,8 @@ public class UI {
                 break;
             case "4":
                 System.out.println("Vælg beløb til");
+                break;
+                case "5"
             default:
                 System.out.println("Forkert input, prøv igen");
 
