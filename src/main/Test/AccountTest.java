@@ -27,11 +27,11 @@ class AccountTest {
 
     /*@Test
     public void getBalance() {
-        List<Transaction> transactions = new ArrayList<>();
-        transactions.add(new Transaction(100,new Date()));
+        List<bank.main.Transaction> transactions = new ArrayList<>();
+        transactions.add(new bank.main.Transaction(100,new Date()));
 
         int sum = 0;
-        for (Transaction transaction : transactions) {
+        for (bank.main.Transaction transaction : transactions) {
             sum += transaction.getAmount();
         }
 

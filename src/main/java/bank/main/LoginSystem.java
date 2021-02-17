@@ -1,3 +1,5 @@
+package bank.main;
+
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.sql.PreparedStatement;
@@ -23,7 +25,7 @@ public class LoginSystem extends Database {
         PreparedStatement insertUserIntoDB;
 
         try {
-            Database.setup();
+            setup();
             insertUserIntoDB = con.prepareStatement("");
 
 
@@ -35,7 +37,7 @@ public class LoginSystem extends Database {
     public void getUserFromDB(String username, String password){
         PreparedStatement getUserFromDB;
         try {
-            Database.setup();
+            setup();
             String encryptedPassword = passwordEncryption(password);
 
             getUserFromDB = con.prepareStatement("SELECT ");

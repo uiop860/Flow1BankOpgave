@@ -1,4 +1,4 @@
-import java.util.Scanner;
+package bank.main;
 
 public class Customer extends Database {
 
