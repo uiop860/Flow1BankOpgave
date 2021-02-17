@@ -1,3 +1,5 @@
+package bank.main;
+
 public class Transaction extends Database {
 
 
@@ -15,7 +17,7 @@ public class Transaction extends Database {
 
     @Override
     public String toString() {
-        return "Transaction{" +
+        return "bank.main.Transaction{" +
                 "transactionID=" + transactionID +
                 ", moneyChange=" + moneyChange +
                 ", date='" + date + '\'' +
