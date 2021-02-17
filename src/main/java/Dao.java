@@ -1,6 +1,7 @@
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 public class Dao extends Database {
 
@@ -72,20 +73,23 @@ public class Dao extends Database {
         return result;
     }
 
-    public static void getTransactions(){
+    public static ArrayList getTransactions(int accountID){
         PreparedStatement getTransactions;
+
+        ArrayList<Transaction> transactions = new ArrayList<>();
         try {
             Database.setup();
-            getTransactions = con.prepareStatement("");
-
-
+            getTransactions = con.prepareStatement("SELECT transactionid,moneychange,date,accounts_accountid FROM bank.transactions WHERE accounts_accountid=?;");
+            getTransactions.setInt(1,accountID);
+            ResultSet rs = getTransactions.executeQuery();
+            while (rs.next()){
+                transactions.add(new Transaction(rs.getInt(1),rs.getInt(2),rs.getString(3),rs.getInt(4)));
+            }
         } catch (SQLException e) {
             e.printStackTrace();
         }
-
+        return transactions;
     }
-
-
 }
 
 

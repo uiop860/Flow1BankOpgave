@@ -30,4 +30,11 @@ class DaoTest {
 
 
     }
+
+    @Test
+    void getTransactions(){
+
+        System.out.println(Dao.getTransactions(1).toString());
+
+    }
 }

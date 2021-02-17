@@ -25,7 +25,7 @@ class AccountTest {
         Assertions.assertEquals(customer,account.getCustomer());
     }*/
 
-    @Test
+    /*@Test
     public void getBalance() {
         List<Transaction> transactions = new ArrayList<>();
         transactions.add(new Transaction(100,new Date()));
@@ -37,14 +37,14 @@ class AccountTest {
 
         Assertions.assertEquals(100,sum);
 
-    }
+    }*/
 
-    @Test
+    /*@Test
     void withDrawAmount() {
 
         Assertions.assertEquals(1000, account.depositOrWithdraw(50,1,1));
 
-    }
+    }*/
 
     /*@Test
     void depositAmount() {
