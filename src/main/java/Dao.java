@@ -64,6 +64,22 @@ public class Dao extends Database {
         }
     }
 
+    public static String findAccount (int accountID){
+        PreparedStatement findCustomer;
+        try {
+            findCustomer = con.prepareStatement("SELECT FROM bank.accounts WHERE customerid");
+
+
+        } catch (SQLException e){
+            e.printStackTrace();
+        }
+        return null;
+
+
+
+
+    }
+
 
 
 }
