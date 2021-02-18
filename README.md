@@ -1,7 +1,5 @@
 # Ebberød Bank opgave
 
-[PDF version af aflevering](Ebberød Bank aflevering.pdf)
-
 ## Status
 
 Vi har fået implementeret alle vores userstories og de virker som forventet
