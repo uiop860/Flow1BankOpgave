@@ -3,7 +3,7 @@ import org.junit.jupiter.api.Test;
 
 class DaoTest {
 
-    @Test
+    /*@Test
     void checkBalance() {
 
         Dao.checkBalance(1);
@@ -36,5 +36,5 @@ class DaoTest {
 
         System.out.println(Dao.getTransactions(1).toString());
 
-    }
+    }*/
 }
