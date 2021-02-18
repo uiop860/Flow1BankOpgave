@@ -16,25 +16,18 @@ CREATE SCHEMA IF NOT EXISTS `bank` DEFAULT CHARACTER SET utf8 ;
 USE `bank` ;
 
 -- -----------------------------------------------------
--- Table `bank`.`bank.main.Customer`
+-- Table `bank`.`Customer`
 -- -----------------------------------------------------
 DROP TABLE IF EXISTS `bank`.`Customer` ;
 
 CREATE TABLE IF NOT EXISTS `bank`.`Customer` (
-    `customerid` INT UNSIGNED NOT NULL AUTO_INCREMENT,
-    `name` VARCHAR(45) NULL,
-    `age` INT NULL,
-    `address` VARCHAR(45) NULL,
-    `Login_username` VARCHAR(45) NOT NULL,
-    PRIMARY KEY (`customerid`, `Login_username`),
-    UNIQUE INDEX `Customer id_UNIQUE` (`customerid` ASC),
-    INDEX `fk_Customer_Login1_idx` (`Login_username` ASC),
-    CONSTRAINT `fk_Customer_Login1`
-    FOREIGN KEY (`Login_username`)
-    REFERENCES `bank`.`Login` (`username`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-    ENGINE = InnoDB;
+  `customerid` INT UNSIGNED NOT NULL AUTO_INCREMENT,
+  `name` VARCHAR(45) NULL,
+  `age` INT NULL,
+  `address` VARCHAR(45) NULL,
+  PRIMARY KEY (`customerid`),
+  UNIQUE INDEX `Customer id_UNIQUE` (`customerid` ASC) VISIBLE)
+ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
@@ -50,7 +43,7 @@ CREATE TABLE IF NOT EXISTS `bank`.`Accounts` (
   INDEX `fk_Accounts_Customer_idx` (`customer_customerid` ASC) VISIBLE,
   CONSTRAINT `fk_Accounts_Customer`
     FOREIGN KEY (`customer_customerid`)
-    REFERENCES `bank`.`bank.main.Customer` (`customerid`)
+    REFERENCES `bank`.`Customer` (`customerid`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
