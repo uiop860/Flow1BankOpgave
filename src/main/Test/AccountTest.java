@@ -9,7 +9,7 @@ import java.util.List;
 class AccountTest {
 
 
-    private Customer customer;
+    /*private Customer customer;
     private Account account;
 
     @BeforeEach
@@ -17,7 +17,7 @@ class AccountTest {
         customer = new Customer("Jens",18,"Kirkevej");
         account = new Account(customer);
 
-    }
+    }*/
 
     /*@Test
     void getCustomer(){

@@ -18,16 +18,23 @@ USE `bank` ;
 -- -----------------------------------------------------
 -- Table `bank`.`bank.main.Customer`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `bank`.`bank.main.Customer` ;
+DROP TABLE IF EXISTS `bank`.`Customer` ;
 
-CREATE TABLE IF NOT EXISTS `bank`.`bank.main.Customer` (
-  `customerid` INT UNSIGNED NOT NULL AUTO_INCREMENT,
-  `name` VARCHAR(45) NULL,
-  `age` INT NULL,
-  `address` VARCHAR(45) NULL,
-  PRIMARY KEY (`customerid`),
-  UNIQUE INDEX `bank.main.Customer id_UNIQUE` (`customerid` ASC) VISIBLE)
-ENGINE = InnoDB;
+CREATE TABLE IF NOT EXISTS `bank`.`Customer` (
+    `customerid` INT UNSIGNED NOT NULL AUTO_INCREMENT,
+    `name` VARCHAR(45) NULL,
+    `age` INT NULL,
+    `address` VARCHAR(45) NULL,
+    `Login_username` VARCHAR(45) NOT NULL,
+    PRIMARY KEY (`customerid`, `Login_username`),
+    UNIQUE INDEX `Customer id_UNIQUE` (`customerid` ASC),
+    INDEX `fk_Customer_Login1_idx` (`Login_username` ASC),
+    CONSTRAINT `fk_Customer_Login1`
+    FOREIGN KEY (`Login_username`)
+    REFERENCES `bank`.`Login` (`username`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+    ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
