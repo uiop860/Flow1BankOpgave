@@ -37,6 +37,7 @@
 		- Bruger får adgang til IT-systemet
 		- Bruger kan sende penge til modtager
 		- Bruger kan se hvor meget der er tilbage på hans konto
+
 	
 
 

@@ -1,22 +1,69 @@
-# Bankdemo
+# Ebberød Bank opgave
 
-### Demokode til 2. semester i forbindelse med jUnit5 opgave
+[PDF version af aflevering](Ebberød Bank aflevering.pdf)
 
-Dette repository er noget vi har overtaget fra en standervissen polak vi mødte et sted i Sydhavnen sidste år. 
-Han talte usammenhængende om, at han ikke nåede at blive færdig med koden inden han forsvandt under bordet med en halv flaske [Zubrowka](https://purevodka.dk/shop/zubrowka-vodka/) i den ene hånd.
-Vores umiddelbare indtryk er, at han slet ikke har fået lavet unit-tests, og en del af metoderne er heller ikke færdige. Så det er jeres opgave:
+## Status
 
-1. En fra gruppen skal downloade en zipfil med koden og pakke den ud på sin maskine. 
-2. Lav et Git Repository og sørg for at skubbe filerne op på jeres egen GitHub konto.
-3. Derefter kan resten af gruppen clone projektet
-4. Kig koden godt igennem og dan jer et indtryk af projektets tilstand. Der er noget test-agtigt kode i Main-klassen. Det er selvfølgelig en utjekket måde at teste på.
-5. Lav nogle test-klasser for bank.main.Account, bank.main.Customer og bank.main.Transaction og lav tests til alle de metoder I kan.
-6. Gør selve metoderne færdige og bliv ved indtil alle jeres tests lyser grønt.
-7. I er færdige med første runde, når I har kodet alle metoderne færdige og alle tests lyser grønt.
-8. Nu er det op til jer at udvide banken med noget mere funktionalitet. Feks. en metode, som kan udskrive alle transaktioner på en konto etc.
+Vi har fået implementeret alle vores userstories og de virker som forventet
 
-God fornøjelse
+## Use case diagram
 
-Her er et slags klassediagram, som måske kan give lidt overblik:
+![Diagram](src/main/resources/Ebberød_Bank_1.0_usecase_diagram.png)
 
-![Diagram](src/main/resources/diagram.png)
+## EER diagram
+
+![Diagram](src/main/resources/EER_Diagram_billede.png)
+
+## Userstories
+
+1. Hævning
+   Bruger mangler penge til at købe en ny bil.
+   Bruger tjekker sin konto og hæver de penge brugeren skal bruge.
+   Derefter kan brugeren se hvor meget der er tilbage på brugerens konto.
+
+   - Acceptkriterier
+   - Bruger får adgang til IT-systemet
+   - Bruger får hævet penge
+   - Bruger kan se tilbageværende beløb
+
+2. Indsætning
+   Bruger har lige haft fødselsdag og har fået en masse kontanter.
+   Brugeren tager til banken og bruger indsætnings terminal.
+   Derefter kan brugeren se hvor meget der er på brugerens konto.
+
+   - Acceptkriterier
+   - Bruger får adgang til IT-systemet
+   - Bruger får indsat penge
+   - Bruger kan se tilbageværende beløb
+
+3. Kontoudskrift
+   Bruger vil gerne se om brugeren's mor har nakket alle hans penge.
+   Brugeren tager ned i banken og bruger en terminal til at få en kontoudskrift.
+   Bruger får information omkring dato, beløb.
+
+   - Acceptkriterier
+   - Bruger får adgang til IT-systemet
+   - Bruger kan se historien for hans konto
+
+4. Overførelse
+   Bruger har fundet noget han vil købe på dba.
+   Bruger indtaster kontonr.
+   Bruger sender penge til modtager.
+   Bruger kan se hvor meget der er tilbage på kontoen.
+
+   - Acceptkriterier
+   - Bruger får adgang til IT-systemet
+   - Bruger kan sende penge til modtager
+   - Bruger kan se hvor meget der er tilbage på hans konto
+	
+## Refleksion
+
+Opgaven er gået rigtig godt, vi er blev meget bedre til at arbejde sammen omkring et projekt. 
+Blandt andet ved brugen af Git og KANBAN til at optimere vores samarbejde. 
+Næste gang vil vi gerne være mere specifik med vores KANBAN board så det er nemmere at 
+forstå hvad der mangler at laves. 
+
+
+
+
+
