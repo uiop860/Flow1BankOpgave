@@ -59,7 +59,7 @@ public class UI {
                     }
                     Dao.makeTransaction(depositAmount, id);
                     int depositCurrentBalanceAfterDeposit = Dao.checkBalance(id);
-                    System.out.println("Du har indsat" + depositAmount + "på" + id + "den nye balance er" + depositCurrentBalanceAfterDeposit);
+                    System.out.println("Du har indsat " + depositAmount + " på " + id + " den nye balance er " + depositCurrentBalanceAfterDeposit);
 
                     break;
                 case "3":
@@ -86,7 +86,7 @@ public class UI {
                         return;
                     }
                     Dao.makeTransaction(transferAmount, transferId);
-                    System.out.println("Du har sat" + transferAmount + "DKK ind på" + transferId);
+                    System.out.println("Du har sat " + transferAmount + " DKK ind på " + transferId);
                     System.out.println(Dao.checkBalance(id));
                     break;
                 case "5":
