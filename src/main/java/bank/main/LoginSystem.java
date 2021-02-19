@@ -1,8 +1,11 @@
 package bank.main;
 
+import com.mysql.cj.protocol.Resultset;
+
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Scanner;
 
@@ -25,7 +28,7 @@ public class LoginSystem extends Database {
         PreparedStatement insertUserIntoDB;
 
         try {
-            setup();
+
             insertUserIntoDB = con.prepareStatement("");
 
 
@@ -34,21 +37,43 @@ public class LoginSystem extends Database {
         }
     }
 
-    public void getUserFromDB(String username, String password){
-        PreparedStatement getUserFromDB;
+    public String checkPasswordInDB(String username){
+        PreparedStatement getPasswordFromDB;
+        String result = null;
         try {
             setup();
-            String encryptedPassword = passwordEncryption(password);
 
-            getUserFromDB = con.prepareStatement("SELECT ");
-
+            getPasswordFromDB = con.prepareStatement("SELECT password FROM bank.Login WHERE username=?;");
+            getPasswordFromDB.setString(1,username);
+            ResultSet rs = getPasswordFromDB.executeQuery();
+            rs.next();
+            result = rs.getString(1);
 
         } catch (SQLException e){
             e.printStackTrace();
         }
+        return result;
     }
 
-    public String passwordEncryption(String passwordToHash){
+    public String checkUsernameInDB(String username){
+        PreparedStatement getUsernameFromDB;
+        String result = null;
+        try {
+            setup();
+
+            getUsernameFromDB = con.prepareStatement("SELECT username FROM bank.login where password=?;");
+            getUsernameFromDB.setString(1,username);
+            ResultSet rs = getUsernameFromDB.executeQuery();
+            rs.next();
+            result = rs.getString(1);
+
+        } catch (SQLException e){
+            e.printStackTrace();
+        }
+        return result;
+    }
+
+    public static String passwordEncryption(String passwordToHash){
 
         // tyv stjålet fra https://howtodoinjava.com/java/java-security/how-to-generate-secure-password-hash-md5-sha-pbkdf2-bcrypt-examples/
 
