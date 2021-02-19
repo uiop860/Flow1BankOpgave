@@ -16,17 +16,17 @@ CREATE SCHEMA IF NOT EXISTS `bank` DEFAULT CHARACTER SET utf8 ;
 USE `bank` ;
 
 -- -----------------------------------------------------
--- Table `bank`.`bank.main.Customer`
+-- Table `bank`.`Customer`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `bank`.`bank.main.Customer` ;
+DROP TABLE IF EXISTS `bank`.`Customer` ;
 
-CREATE TABLE IF NOT EXISTS `bank`.`bank.main.Customer` (
+CREATE TABLE IF NOT EXISTS `bank`.`Customer` (
   `customerid` INT UNSIGNED NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(45) NULL,
   `age` INT NULL,
   `address` VARCHAR(45) NULL,
   PRIMARY KEY (`customerid`),
-  UNIQUE INDEX `bank.main.Customer id_UNIQUE` (`customerid` ASC) VISIBLE)
+  UNIQUE INDEX `Customer id_UNIQUE` (`customerid` ASC) VISIBLE)
 ENGINE = InnoDB;
 
 
@@ -43,7 +43,7 @@ CREATE TABLE IF NOT EXISTS `bank`.`Accounts` (
   INDEX `fk_Accounts_Customer_idx` (`customer_customerid` ASC) VISIBLE,
   CONSTRAINT `fk_Accounts_Customer`
     FOREIGN KEY (`customer_customerid`)
-    REFERENCES `bank`.`bank.main.Customer` (`customerid`)
+    REFERENCES `bank`.`Customer` (`customerid`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;

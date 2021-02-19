@@ -17,15 +17,15 @@ class AccountTest {
         customer = new Customer("Jens",18,"Kirkevej");
         account = new Account(customer);
 
-    }*/
+    }
 
-    /*@Test
+    @Test
     void getCustomer(){
         Assertions.assertNotNull(account.getCustomer());
         Assertions.assertEquals(customer,account.getCustomer());
-    }*/
+    }
 
-    /*@Test
+    @Test
     public void getBalance() {
         List<bank.main.Transaction> transactions = new ArrayList<>();
         transactions.add(new bank.main.Transaction(100,new Date()));
@@ -37,16 +37,16 @@ class AccountTest {
 
         Assertions.assertEquals(100,sum);
 
-    }*/
+    }
 
-    /*@Test
+    @Test
     void withDrawAmount() {
 
         Assertions.assertEquals(1000, account.depositOrWithdraw(50,1,1));
 
-    }*/
+    }
 
-    /*@Test
+    @Test
     void depositAmount() {
         Assertions.assertEquals(100, account.depositAmount(100));
 
