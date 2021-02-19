@@ -54,7 +54,7 @@ public class UI {
                     try {
                         depositAmount = Integer.parseInt(takeStringInput());
                     } catch (NumberFormatException e) {
-                        System.out.println("Forkert input, prøv igen BitchSo");
+                        System.out.println("Forkert input, prøv  igen BitchSo");
                         return;
                     }
                     Dao.makeTransaction(depositAmount, id);
