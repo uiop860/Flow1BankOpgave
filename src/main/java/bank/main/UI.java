@@ -1,5 +1,6 @@
 package bank.main;
 
+import java.sql.SQLException;
 import java.util.Scanner;
 
 public class UI {
@@ -8,6 +9,32 @@ public class UI {
     public String takeStringInput() {
         Scanner input = new Scanner(System.in);
         return input.nextLine();
+    }
+
+    public void login(){
+        LoginSystem loginSystem = new LoginSystem();
+        String username = null;
+        String password = null;
+        String encryptedPassword = null;
+        try{
+
+            System.out.println("Velkommen til banken.");
+            System.out.println("Indtast venligst brugernavn");
+            username = takeStringInput();
+            System.out.println("Indtast venligst kodeord");
+            password = takeStringInput();
+            encryptedPassword = LoginSystem.passwordEncryption(password);
+
+            if (encryptedPassword.equals(loginSystem.checkPasswordInDB(username))){
+                System.out.println("Korrekt kodeord");
+                setup();
+            } else {
+                System.out.println("Forkert brugernavn eller kodeord");
+                login();
+            }
+        } catch (NullPointerException e){
+            e.printStackTrace();
+        }
     }
 
 
