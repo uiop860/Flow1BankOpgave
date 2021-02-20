@@ -1,6 +1,5 @@
 package bank.main;
 
-import java.sql.SQLException;
 import java.util.Scanner;
 
 public class UI {
@@ -11,49 +10,36 @@ public class UI {
         return input.nextLine();
     }
 
-    public void login(){
+    public void login() {
         LoginSystem loginSystem = new LoginSystem();
         String username = null;
         String password = null;
         String encryptedPassword = null;
-        try{
+        try {
 
-            System.out.println("Velkommen til banken.");
             System.out.println("Indtast venligst brugernavn");
             username = takeStringInput();
             System.out.println("Indtast venligst kodeord");
             password = takeStringInput();
             encryptedPassword = LoginSystem.passwordEncryption(password);
 
-            if (encryptedPassword.equals(loginSystem.checkPasswordInDB(username))){
+            if (encryptedPassword.equals(loginSystem.checkPasswordInDB(username))) {
                 System.out.println("Korrekt kodeord");
-                setup();
+                id = loginSystem.getCustomerIDFromDB(username);
+                run();
             } else {
                 System.out.println("Forkert brugernavn eller kodeord");
                 login();
             }
-        } catch (NullPointerException e){
-            e.printStackTrace();
-        }
-    }
-
-
-    public void setup() {
-        System.out.println("Velkommen til banken.");
-        System.out.println("Indtast venligst dit kunde ID.");
-        try {
-            id = Integer.parseInt(takeStringInput());
-            System.out.println("Mange tak, vælg venligst et af følgende funktioner.");
-            run();
         } catch (NullPointerException e) {
-            System.out.println(e);
+            e.printStackTrace();
         }
     }
 
     public void run() {
         boolean running = true;
         while (running) {
-            System.out.println(" 1 - Hæve penge \n 2 - Indsæt penge\n 3 - Kontoudtog\n 4 - Overfør penge\n 5 - Afslut");
+            System.out.println("Din balance er: " +Dao.checkBalance(id)+ "\n Vil du: "+"\n 1 - Hæve penge\n 2 - Indsæte penge\n 3 - Se kontoudtog\n 4 - Overføre penge\n 5 - Afslut");
             String input = takeStringInput();
             switch (input) {
 

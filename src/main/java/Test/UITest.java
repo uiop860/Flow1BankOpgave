@@ -7,8 +7,6 @@ class UITest {
     @Test
     void takeStringInput() {
 
-
-
     }
 
     @Test

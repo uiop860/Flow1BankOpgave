@@ -28,13 +28,31 @@ public class LoginSystem extends Database {
         PreparedStatement insertUserIntoDB;
 
         try {
-
+            setup();
             insertUserIntoDB = con.prepareStatement("");
-
 
         } catch (SQLException e){
             e.printStackTrace();
         }
+    }
+
+    public int getCustomerIDFromDB(String username){
+        PreparedStatement getPasswordFromDB;
+        int result = 0;
+        try {
+            setup();
+
+            getPasswordFromDB = con.prepareStatement("SELECT Customer_customerid FROM bank.login WHERE username=?;");
+            getPasswordFromDB.setString(1,username);
+            ResultSet rs = getPasswordFromDB.executeQuery();
+            rs.next();
+            result = rs.getInt(1);
+
+        } catch (SQLException e){
+            e.printStackTrace();
+        }
+        return result;
+
     }
 
     public String checkPasswordInDB(String username){
@@ -46,24 +64,6 @@ public class LoginSystem extends Database {
             getPasswordFromDB = con.prepareStatement("SELECT password FROM bank.Login WHERE username=?;");
             getPasswordFromDB.setString(1,username);
             ResultSet rs = getPasswordFromDB.executeQuery();
-            rs.next();
-            result = rs.getString(1);
-
-        } catch (SQLException e){
-            e.printStackTrace();
-        }
-        return result;
-    }
-
-    public String checkUsernameInDB(String username){
-        PreparedStatement getUsernameFromDB;
-        String result = null;
-        try {
-            setup();
-
-            getUsernameFromDB = con.prepareStatement("SELECT username FROM bank.login where password=?;");
-            getUsernameFromDB.setString(1,username);
-            ResultSet rs = getUsernameFromDB.executeQuery();
             rs.next();
             result = rs.getString(1);
 
