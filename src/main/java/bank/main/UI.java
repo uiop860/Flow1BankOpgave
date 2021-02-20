@@ -6,11 +6,38 @@ public class UI {
     int id = 0;
 
     public String takeStringInput() {
+
         Scanner input = new Scanner(System.in);
         return input.nextLine();
+
     }
 
+    public void newOrExistingUser(){
+
+        try {
+            System.out.println("Velkommen til Ebberød bank");
+            System.out.println("Log venligst ind eller opret en konto");
+            System.out.println(" 1. Eksisterende bruger\n 2. Ny bruger");
+            int value = Integer.parseInt(takeStringInput());
+
+            if (value == 1){
+                login();
+            } else if (value == 2){
+
+            }
+
+
+
+        } catch (NullPointerException e) {
+            e.printStackTrace();
+        }
+
+    }
+
+
+
     public void login() {
+
         LoginSystem loginSystem = new LoginSystem();
         String username = null;
         String password = null;

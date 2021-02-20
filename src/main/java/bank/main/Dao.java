@@ -59,8 +59,13 @@ public class Dao extends Database {
     public static void insertCustomerIntoDatabase(String name, int age, String address) {
         PreparedStatement insertCustomer;
         PreparedStatement createAccount;
+        PreparedStatement createLogin;
         try {
             Database.setup();
+            createLogin = con.prepareStatement("");
+
+
+
             insertCustomer = con.prepareStatement("INSERT INTO bank.customer(Name, Age, Address) VALUES (?,?,?);");
             insertCustomer.setString(1, name);
             insertCustomer.setInt(2, age);
